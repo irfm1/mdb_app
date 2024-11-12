@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Laravel-1</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -53,6 +53,9 @@
                                             Register
                                         </a>
                                     @endif
+
+
+
                                 @endauth
                             </nav>
                         @endif
@@ -97,6 +100,7 @@
                                             <h2 class="text-xl font-semibold text-black">Documentation</h2>
 
                                             <p class="mt-4 text-sm/relaxed">
+                                                <button id="installButton" style="display: none;">Instalar Aplicativo</button>
                                                 Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
                                             </p>
                                         </div>
@@ -173,4 +177,37 @@
             </div>
         </div>
     </body>
+    <script>
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Impede que o navegador exiba o prompt padrão
+            e.preventDefault();
+            // Armazena o evento para uso posterior
+            deferredPrompt = e;
+            // Exibe o botão de instalação
+            document.getElementById('installButton').style.display = 'block';
+        });
+
+        const installButton = document.getElementById('installButton');
+
+        installButton.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                // Exibe o prompt de instalação
+                deferredPrompt.prompt();
+                // Aguarda a resposta do usuário
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    console.log('Usuário aceitou a instalação');
+                } else {
+                    console.log('Usuário recusou a instalação');
+                }
+                // Reseta a variável deferredPrompt
+                deferredPrompt = null;
+                // Oculta o botão de instalação
+                installButton.style.display = 'none';
+            }
+        });
+
+    </script>
 </html>

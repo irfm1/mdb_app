@@ -16,6 +16,7 @@
 
         <!-- Styles -->
         @livewireStyles
+        @laravelPWA
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -42,4 +43,17 @@
 
         @livewireScripts
     </body>
+    <script>
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Impede que o navegador exiba o prompt padrão
+            e.preventDefault();
+            // Armazena o evento para uso posterior
+            deferredPrompt = e;
+            // Exibe o botão de instalação
+            document.getElementById('installButton').style.display = 'block';
+        });
+
+    </script>
 </html>
