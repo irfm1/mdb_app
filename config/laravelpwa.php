@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'name' => 'LaravelPWA',
+    'name' => 'Mundo da Bola',
     'manifest' => [
-        'name' => env('APP_NAME', 'My PWA App'),
-        'short_name' => 'PWA',
+        'name' => env('APP_NAME', 'Mundo da Bola'),
+        'short_name' => 'MDB',
         'start_url' => '/',
         'background_color' => '#ffffff',
         'theme_color' => '#000000',
