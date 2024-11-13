@@ -42,6 +42,8 @@
         @stack('modals')
 
         @livewireScripts
+
+        @laravelPWA
     </body>
     <script>
         let deferredPrompt;
@@ -54,6 +56,23 @@
             // Exibe o botão de instalação
             document.getElementById('installButton').style.display = 'block';
         });
+
+        function installPWA() {
+            // Exibe o prompt de instalação
+            deferredPrompt.prompt();
+            // Aguarda o usuário interagir com o prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('Usuário aceitou a instalação');
+                } else {
+                    console.log('Usuário recusou a instalação');
+                }
+                // Limpa o evento armazenado
+                deferredPrompt = null;
+                // Esconde o botão de instalação
+                document.getElementById('installButton').style.display = 'none';
+            });
+        }
 
     </script>
 </html>

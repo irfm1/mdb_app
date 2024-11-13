@@ -18,11 +18,42 @@
         @livewireStyles
         @laravelPWA
     </head>
-    <body>
+    <body style="background-image: url('/images/back_fut.jpg'); filter: blur(20%); background-size: cover; background-position: center;">
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
 
         @livewireScripts
     </body>
+
+    <script>
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Impede que o navegador exiba o prompt padrão
+            e.preventDefault();
+            // Armazena o evento para uso posterior
+            deferredPrompt = e;
+            // Habilita o botão de instalação
+            document.getElementById('installButton').disabled = false;
+        });
+
+        function installPWA() {
+            // Exibe o prompt de instalação
+            deferredPrompt.prompt();
+            // Aguarda o usuário responder
+            deferredPrompt.userChoice
+                .then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Usuário aceitou a instalação');
+                    } else {
+                        console.log('Usuário recusou a instalação');
+                    }
+                    // Limpa o evento armazenado
+                    deferredPrompt = null;
+                    // desabilita o botão de instalação
+                    document.getElementById('installButton').disabled = true;
+                });
+        }
+    </script>
 </html>
