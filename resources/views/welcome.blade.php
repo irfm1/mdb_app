@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-banner />
+
     <div class="min-h-screen">
 
         <main>
