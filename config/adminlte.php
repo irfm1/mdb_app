@@ -134,7 +134,7 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
@@ -318,74 +318,79 @@ return [
         [
             'text' => 'Casas de Apostas',
             'icon' => 'fas fa-fw fa-building',
-            'url' => 'casas-de-apostas',
+            'url' => 'admin/casas',
         ],
         [
             'text' => 'Cassino',
             'icon' => 'fas fa-fw fa-dice',
-            'url' => 'cassino',
+            'url' => 'admin/cassino',
         ],
         [
             'text' => 'Como Apostar',
             'icon' => 'fas fa-fw fa-info-circle',
-            'url' => 'como-apostar',
+            'url' => 'admin/como-apostar',
         ],
         [
             'text' => 'Palpites',
             'icon' => 'fas fa-fw fa-lightbulb',
-            'url' => 'palpites',
+            'url' => 'admin/palpites',
         ],
         [
             'text' => 'Comparador de Odds',
             'icon' => 'fas fa-fw fa-chart-line',
-            'url' => 'comparador-odds',
+            'url' => 'admin/comparador-odds',
         ],
         [
             'text' => 'Promoções',
             'icon' => 'fas fa-fw fa-gift',
-            'url' => 'promocoes',
+            'url' => 'admin/promocoes',
         ],
         [
             'text' => 'Vídeos',
             'icon' => 'fas fa-fw fa-video',
-            'url' => 'videos',
+            'url' => 'admin/videos',
         ],
         [
             'text' => 'Jogos de Ontem',
             'icon' => 'fas fa-fw fa-clock',
-            'url' => 'jogos-ontem',
+            'url' => 'admin/jogos-ontem',
         ],
-        ['header' => 'Configurações de Conta'],
+        ['header' => 'Configurações de Usuário'],
+        [
+            'text' => 'Usuários',
+            'icon' => 'fas fa-fw fa-users',
+            'url' => 'admin/usuarios',
+        ],
         [
             'text' => 'Perfil',
             'icon' => 'fas fa-fw fa-user',
-            'url' => 'perfil',
+            'url' => 'admin/perfil',
         ],
         [
-            'text' => 'Alterar Senha',
-            'icon' => 'fas fa-fw fa-lock',
-            'url' => 'alterar-senha',
+            'text' => 'Configurações',
+            'icon' => 'fas fa-fw fa-cog',
+            'url' => 'admin/configuracoes',
         ],
         [
             'text' => 'Notificações',
             'icon' => 'fas fa-fw fa-bell',
-            'url' => 'notificacoes',
+            'url' => 'admin/notificacoes',
         ],
         ['header' => 'Funcionalidades Avançadas'],
         [
             'text' => 'Cursos',
             'icon' => 'fas fa-fw fa-graduation-cap',
-            'url' => 'cursos',
+            'url' => 'admin/cursos',
         ],
         [
             'text' => 'Links de Bilhetes Prontos',
             'icon' => 'fas fa-fw fa-link',
-            'url' => 'bilhetes-prontos',
+            'url' => 'admin/bilhetes-prontos',
         ],
         [
             'text' => 'Gráfico de Desempenho',
             'icon' => 'fas fa-fw fa-chart-pie',
-            'url' => 'grafico-desempenho',
+            'url' => 'admin/grafico-desempenho',
         ],
         [
             'text' => 'Notícias Futebol',
@@ -590,5 +595,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

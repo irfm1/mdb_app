@@ -6,8 +6,17 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/admin', function () {
-    return view('admin.index');
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    })->name('admin.dashboard');
+    Route::get('/login', function () {
+        return view('admin.login');
+    })->name('admin.login');
+
+    //casa de apostas resources
+    Route::resource('casas', 'App\Http\Controllers\CasaDeApostaController');
+
 });
 
 
