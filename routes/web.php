@@ -1,8 +1,8 @@
 <?php
 
 use App\Livewire\Casas;
-
 use App\Livewire\Roles;
+use App\Livewire\Users;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,6 +21,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 //    Route::resource('casas', 'App\Http\Controllers\CasaDeApostaController');
     Route::get('casas', Casas::class)->name('admin.casas.index');
     Route::get('roles', Roles::class)->name('admin.roles.index');
+    Route::get('users', Users::class)->name('admin.users.index');
 });
 
 
