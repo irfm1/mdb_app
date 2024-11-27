@@ -9,60 +9,62 @@
 {{-- Setup Custom Footer Content --}}
 
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card card-primary card-outline">
-                <div class="card-header">
-                    <h3 class="card-title text-dark">Casas</h3>
-                    <div class="card-tools text-right">
-                        <a href="{{ route('admin.casas.create') }}" class="btn btn-primary">
-                            <i class="fas fa-plus"></i> Adicionar
-                        </a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Endereço</th>
-                                <th>Preço</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($casas as $casa)
-                                <tr>
-                                    <td>{{ $casa->nome }}</td>
-                                    <td>{{ $casa->endereco }}</td>
-                                    <td>{{ $casa->preco }}</td>
-                                    <td>
-                                        <a href="{{ route('admin.casas.edit', $casa->id) }}" class="btn btn-primary btn-sm">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a href="{{ route('admin.casas.show', $casa->id) }}" class="btn btn-info btn-sm">
-                                            <i class="fas fa-eye text-white"></i>
-                                        </a>
-                                        <form action="{{ route('admin.casas.destroy', $casa->id) }}" method="post" class="d-inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <div class="card-footer">
-                    {{ $casas->links() }}
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="row">--}}
+{{--        <div class="col-md-12">--}}
+{{--            <div class="card card-primary card-outline">--}}
+{{--                <div class="card-header">--}}
+{{--                    <h3 class="card-title text-dark">Casas</h3>--}}
+{{--                    <div class="card-tools text-right">--}}
+{{--                        <a href="{{ route('admin.casas.create') }}" class="btn btn-primary">--}}
+{{--                            <i class="fas fa-plus"></i> Adicionar--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="card-body">--}}
+{{--                    <table class="table table-striped">--}}
+{{--                        <thead>--}}
+{{--                            <tr>--}}
+{{--                                <th>Nome</th>--}}
+{{--                                <th>Endereço</th>--}}
+{{--                                <th>Preço</th>--}}
+{{--                                <th>Ações</th>--}}
+{{--                            </tr>--}}
+{{--                        </thead>--}}
+{{--                        <tbody>--}}
+{{--                            @foreach($casas as $casa)--}}
+{{--                                <tr>--}}
+{{--                                    <td>{{ $casa->nome }}</td>--}}
+{{--                                    <td>{{ $casa->endereco }}</td>--}}
+{{--                                    <td>{{ $casa->preco }}</td>--}}
+{{--                                    <td>--}}
+{{--                                        <a href="{{ route('admin.casas.edit', $casa->id) }}" class="btn btn-primary btn-sm">--}}
+{{--                                            <i class="fas fa-edit"></i>--}}
+{{--                                        </a>--}}
+{{--                                        <a href="{{ route('admin.casas.show', $casa->id) }}" class="btn btn-info btn-sm">--}}
+{{--                                            <i class="fas fa-eye text-white"></i>--}}
+{{--                                        </a>--}}
+{{--                                        <form action="{{ route('admin.casas.destroy', $casa->id) }}" method="post" class="d-inline">--}}
+{{--                                            @csrf--}}
+{{--                                            @method('DELETE')--}}
+{{--                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">--}}
+{{--                                                <i class="fas fa-trash"></i>--}}
+{{--                                            </button>--}}
+{{--                                        </form>--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
+{{--                            @endforeach--}}
+{{--                        </tbody>--}}
+{{--                    </table>--}}
+{{--                </div>--}}
+{{--                <div class="card-footer">--}}
+{{--                    {{ $casas->links() }}--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
+
+    <livewire:casas />
 
 @endsection
 

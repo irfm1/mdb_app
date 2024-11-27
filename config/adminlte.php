@@ -362,9 +362,9 @@ return [
             'url' => 'admin/usuarios',
         ],
         [
-            'text' => 'Perfil',
-            'icon' => 'fas fa-fw fa-user',
-            'url' => 'admin/perfil',
+            'text' => 'Roles',
+            'icon' => 'fas fa-fw fa-user-tag',
+            'url' => 'admin/roles',
         ],
         [
             'text' => 'Configurações',
