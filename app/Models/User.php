@@ -78,4 +78,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Pagamento::class);
     }
+
+    public function pacotes()
+    {
+        return $this->belongsToMany(Pacote::class, 'pacote_usuario')
+            ->withPivot('data_inicio', 'data_fim')
+            ->withTimestamps();
+    }
 }

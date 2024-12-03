@@ -257,7 +257,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -341,9 +341,9 @@ return [
             'url' => 'admin/comparador-odds',
         ],
         [
-            'text' => 'Promoções',
+            'text' => 'Pacotes',
             'icon' => 'fas fa-fw fa-gift',
-            'url' => 'admin/promocoes',
+            'url' => 'admin/pacotes',
         ],
         [
             'text' => 'Vídeos',
@@ -390,7 +390,7 @@ return [
         [
             'text' => 'Gráfico de Desempenho',
             'icon' => 'fas fa-fw fa-chart-pie',
-            'url' => 'admin/grafico-desempenho',
+            'url' => 'admin/',
         ],
         [
             'text' => 'Notícias Futebol',
