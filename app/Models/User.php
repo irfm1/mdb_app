@@ -85,4 +85,9 @@ class User extends Authenticatable
             ->withPivot('data_inicio', 'data_fim')
             ->withTimestamps();
     }
+
+    public function perfil()
+    {
+        return $this->hasOne(Perfil::class);
+    }
 }

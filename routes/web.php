@@ -3,6 +3,8 @@
 use App\Http\Controllers\CampeonatosController;
 use App\Livewire\AdminPacotes;
 use App\Livewire\Casas;
+use App\Livewire\Dashboard;
+use App\Livewire\MultiStepRegistration;
 use App\Livewire\Roles;
 use App\Livewire\Users;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +52,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('pacotes', AdminPacotes::class)->name('admin.pacotes.index');
 });
 
+Route::get('/register', MultiStepRegistration::class)->name('register');
+
 Route::get('/campeonatos', [CampeonatosController::class, 'index'])->name('campeonatos.index');
 Route::get('/campeonatos/{id}', [CampeonatosController::class, 'show'])->name('campeonatos.show');
 Route::get('/campeonatos/{id}/tabela', [CampeonatosController::class, 'tabela'])->name('campeonatos.tabela');
@@ -59,7 +63,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+
 });
